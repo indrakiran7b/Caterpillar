@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
+
 export const alt = "CaterPillar — Turn your scrap into cash.";
 export const size = {
   width: 1200,

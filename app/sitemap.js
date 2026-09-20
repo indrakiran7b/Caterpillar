@@ -1,5 +1,7 @@
 import { getSiteUrl } from "@/lib/config";
 
+export const dynamic = "force-static";
+
 export default function sitemap() {
   const siteUrl = getSiteUrl();
 
