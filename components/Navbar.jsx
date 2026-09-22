@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { navLinks } from "@/lib/content";
 import { easeOut } from "@/lib/motion";
 import BookPickupButton from "@/components/BookPickupButton";
@@ -45,19 +46,19 @@ export default function Navbar() {
           transition={{ duration: reduceMotion ? 0 : 0.28, ease: easeOut }}
           className="flex items-center justify-between"
         >
-          <a href="/#top" className="text-[15px] font-semibold md:text-base" aria-label="CaterPillar home">
+          <Link href="/#top" className="text-[15px] font-semibold md:text-base" aria-label="CaterPillar home">
             <Logo />
-          </a>
+          </Link>
 
           <ul className="hidden items-center gap-8 text-sm text-muted md:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="relative py-1 transition-colors duration-300 hover:text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-ink after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -94,13 +95,13 @@ export default function Navbar() {
               <ul className="flex flex-col">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       onClick={closeMenu}
                       className="block py-3 text-base font-medium text-ink"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

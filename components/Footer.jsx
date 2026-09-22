@@ -1,19 +1,21 @@
-import { Apple, Play } from "lucide-react";
+import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { footerQuickLinks } from "@/lib/content";
 import Container from "@/components/Container";
+import AppleAppStoreIcon from "@/components/icons/AppleAppStoreIcon";
+import GooglePlayIcon from "@/components/icons/GooglePlayIcon";
 import Logo from "@/components/Logo";
 
 const downloads = [
   {
     label: "Google Play Store",
     href: siteConfig.androidAppUrl,
-    icon: Play,
+    icon: GooglePlayIcon,
   },
   {
     label: "Apple App Store",
     href: siteConfig.iosAppUrl,
-    icon: Apple,
+    icon: AppleAppStoreIcon,
   },
 ];
 
@@ -23,9 +25,9 @@ export default function Footer() {
       <Container>
         <div className="grid gap-12 md:grid-cols-3 md:gap-16">
           <div className="max-w-sm">
-            <a href="/#top" className="text-base font-semibold" aria-label="CaterPillar home">
+            <Link href="/#top" className="text-base font-semibold" aria-label="CaterPillar home">
               <Logo onDark />
-            </a>
+            </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">
               Building a simpler and more convenient way to recycle household materials.
             </p>
@@ -38,12 +40,12 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {footerQuickLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-white/80 transition-colors duration-300 hover:text-white"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -58,7 +60,7 @@ export default function Footer() {
                 const Icon = item.icon;
                 const content = (
                   <>
-                    <Icon size={16} strokeWidth={1.8} className="text-brand" aria-hidden="true" />
+                    <Icon className="h-[18px] w-[18px] shrink-0 text-white" />
                     {item.label}
                   </>
                 );
